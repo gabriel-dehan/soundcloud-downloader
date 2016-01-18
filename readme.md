@@ -8,7 +8,22 @@ This library provides three things :
 
 The only thing you need are a **SoundCloud CLIENT_ID** and the stream URL of a track which is fetchable through [the API](https://developers.soundcloud.com/docs/api/reference#tracks)
 
-To use it :
+## Installation
+
+```
+$ gem install soundcloud-downloader
+```
+
+Or in `Gemfile`
+```
+$ gem soundcloud-downloader
+```
+
+## Usage
+
+```ruby
+require 'soundcloud-downloader'
+```
 
 Example 1 : Get sounds and stores them in temporary files
 ```ruby
