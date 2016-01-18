@@ -25,7 +25,7 @@ $ gem soundcloud-downloader
 require 'soundcloud-downloader'
 ```
 
-## Basicaly
+### Basicaly
 
 ```ruby
 downloader = SoundCloud::Downloader::Client.new(client_id: SOUNDCLOUD_CLIENT_ID, path: 'download')
@@ -33,7 +33,7 @@ downloader.download(url, { file_name: "file name you want", display_progress: tr
 # Will display a download progress bar and download the file in the 'download' directory
 ```
 
-## Advanced
+### Advanced
 
 Example 1 : Get sounds and stores them in temporary files
 
