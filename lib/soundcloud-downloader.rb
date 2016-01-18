@@ -52,6 +52,19 @@ module SoundCloud
         @url       = nil
       end
 
+      # Public: Simplest method to download a file
+      #
+      # file_name - The file name as a String
+      # url - The stream URL of the soundclound sound as a String
+      #
+      # Returns a File
+      def download(url, opts = { display_progress: true, file_name: "unknown" })
+        self.resolve(url)
+        self.load opts[:file_name] do |length, position, chunk|
+          SoundCloud::Downloader::Helpers.progress_bar("=", ">", position) if opts[:display_progress]
+        end
+      end
+
       # Public: resolves a soundcloud API url
       #
       # url - The URL to resolve as a String.

@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'soundcloud-downloader'
-  s.version     = '1.0.1'
+  s.version     = '1.1.0'
   s.date        = '2016-01-19'
   s.summary     = "A simple API to download soundcloud songs"
   s.description = "A simple API to download soundcloud songs"
