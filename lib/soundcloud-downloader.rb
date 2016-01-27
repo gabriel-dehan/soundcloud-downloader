@@ -35,6 +35,14 @@ module SoundCloud
       end
     end
 
+    class Rails
+      def self.download!(url, filename)
+        send_data open(url).read,
+          :type => "audio/mpeg",
+          :disposition => "attachment; filename=\"#{filename}.mp3\""
+      end
+    end
+
     class Client
 
       attr_reader :client_id, :path, :fs_location, :url
@@ -79,6 +87,8 @@ module SoundCloud
         if res.code == '302'
           @url = res.header['Location']
         end
+
+        @url
       end
 
       # Public: loads a file, either downloading it in the specified directory or in a temporory file
@@ -149,5 +159,6 @@ module SoundCloud
           end
       end
     end
+
   end
 end

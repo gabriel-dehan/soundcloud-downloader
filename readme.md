@@ -8,6 +8,16 @@ This library provides three things :
 
 The only thing you need are a **SoundCloud CLIENT_ID** and the stream URL of a track which is fetchable through [the API](https://developers.soundcloud.com/docs/api/reference#tracks)
 
+```
+soundcloud-downloader -v
+# => 1.2.0
+
+soundcloud-downloader --changelog
+# V 1.2.0 : #resolve now returns the URL everytime, download! method for Rails
+# V 1.1.0 : Fixes and Ruby download! method
+# V 1.0.0 : Release
+```
+
 ## Installation
 
 ```
@@ -25,12 +35,23 @@ $ gem soundcloud-downloader
 require 'soundcloud-downloader'
 ```
 
-### Basicaly
+### Ruby
 
 ```ruby
 downloader = SoundCloud::Downloader::Client.new(client_id: SOUNDCLOUD_CLIENT_ID, path: 'download')
 downloader.download(url, { file_name: "file name you want", display_progress: true })
 # Will display a download progress bar and download the file in the 'download' directory
+```
+
+### Rails
+```ruby
+def some_action
+  downloader = SoundCloud::Downloader::Client.new(client_id: SOUNDCLOUD_CLIENT_ID)
+  url = downloader.resolve("https://api.soundcloud.com/tracks/147462663/stream")
+
+  # Makes the browser download the file
+  SoundCloud::Downloader::Rails.download(url, "yourfilename")
+end
 ```
 
 ### Advanced
