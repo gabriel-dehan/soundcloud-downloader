@@ -35,14 +35,6 @@ module SoundCloud
       end
     end
 
-    class Rails
-      def self.download!(url, filename)
-        send_data open(url).read,
-          :type => "audio/mpeg",
-          :disposition => "attachment; filename=\"#{filename}.mp3\""
-      end
-    end
-
     class Client
 
       attr_reader :client_id, :path, :fs_location, :url
