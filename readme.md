@@ -47,6 +47,8 @@ downloader.download(url, { file_name: "file name you want", display_progress: tr
 ### Rails 4
 
 ```ruby
+require "open-uri"
+
 class SomeController < ApplicationController
   def some_action
     downloader = SoundCloud::Downloader::Client.new(client_id: SOUNDCLOUD_CLIENT_ID)
